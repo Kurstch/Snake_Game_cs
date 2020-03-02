@@ -120,9 +120,6 @@
     <None Include="Resources\snake_corner_90.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\snake_head_270.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\snake_head_0.png" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +127,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\snake_head_180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_head_270.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
