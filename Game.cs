@@ -75,8 +75,8 @@ namespace datorium_snake_game_cs
             #region body
 
             Snake.Add(new SnakePixel());
-            Snake[1].Left = 180;
-            Snake[1].Top = 200;
+            Snake[1].Left = Snake[0].Left - 20;
+            Snake[1].Top = Snake[0].Top;
             Snake[1].Image = Properties.Resources.snake_straight_90;
             this.Controls.Add(Snake[1]);
             Snake[1].BringToFront();
@@ -86,12 +86,12 @@ namespace datorium_snake_game_cs
             #region tail
 
             Snake.Add(new SnakePixel());
-            Snake[Snake.Count -1].Left = 160;
-            Snake[Snake.Count - 1].Top = 200;
-            Snake[Snake.Count - 1].Image = Properties.Resources.snake_tail_0;
-            Snake[Snake.Count - 1].BackColor = Color.Transparent;
+            Snake[2].Left = Snake[0].Left - 40;
+            Snake[2].Top = Snake[0].Top;
+            Snake[2].Image = Properties.Resources.snake_tail_0;
+            Snake[2].BackColor = Color.Transparent;
             this.Controls.Add(Snake[2]);
-            Snake[Snake.Count - 1].BringToFront();
+            Snake[2].BringToFront();
 
             #endregion
         }
@@ -102,7 +102,6 @@ namespace datorium_snake_game_cs
             this.Height = 600;
             this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            this.BackColor = Color.AliceBlue;
             this.KeyDown += new KeyEventHandler(Game_KeyDown);
         }
 
@@ -289,18 +288,14 @@ namespace datorium_snake_game_cs
         private void SnakeRectangleCollision()
         {
             if (!Zone.Bounds.Contains(Snake[0].Bounds))
-            {
                 GameOver();
-            }
         }
 
         private void SnakeItselfCollision()
         {
             for(int i = Snake.Count - 1; i > 2; i--)
-            {
                 if (Snake[0].Bounds.IntersectsWith(Snake[i].Bounds))
                     GameOver();
-            }
         }
 
         #endregion
